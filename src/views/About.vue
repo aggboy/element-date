@@ -1,12 +1,17 @@
 <template>
   <div class="open-time">
+    <!-- 
+      needPushEmpty：是否需要每个月第一天前面补空对象 如7月1号是星期三 则 星期一和星期二 补空
+      pushEmptyObj：需要补空对象 的 {} 参数
+      bgColor: 头部背景颜色
+     -->
     <myDate :listData="monthData"
             v-slot:default="{jtem}"
             :bgColor="'green'"
             needPushEmpty
             :pushEmptyObj='pushEmptyObj'
             @changeDate='getMonthData'>
-      <!-- 插槽内容 -->
+      <!-- 插槽内容  自定义显示-->
       <div class="font-box"
            @click.stop="selectExceptTime(jtem)">
         <b v-if='jtem.usableOrNot'>
